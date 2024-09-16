@@ -18,6 +18,7 @@ app.use(cors())
 // }))
 
 //Routes
+
 const studentRoutes=require('./routes/student.route')
 const adminRoutes=require('./routes/admin.route')
 const teacherRoutes=require('./routes/teacher.route')

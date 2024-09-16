@@ -6,13 +6,13 @@ const studentDetailsModel = require('../models/studentDetails.model')
 const classModel = require('../models/class.model')
 const path = require('path')
 const xlsx = require('xlsx')
-
+     
 const generateClassId = require('../deriving/deriveClass')
 const studentJsonGenerate = require('../deriving/deriveStd')
-
+     
 const jwt = require('jsonwebtoken')
 const { type } = require('os')
-
+     
 const editTeacher = async (req, res) => {
     const id = req.params.id;
     console.log(id);
@@ -40,7 +40,7 @@ const editTeacher = async (req, res) => {
         if (!updatedTeacher || !updateUser) {
             return res.status(404).json({ msg: 'Teacher not found' });
         }
-
+     
         res.status(200).json(updatedTeacher);
     } catch (err) {
         console.error(err.message);
@@ -73,7 +73,7 @@ const registerStudent = async (req, res) => {
                 res.status(405).json({ reason: "studentDetails already exists" })
                 break lable1
             }
-            const value1 = generateClassId(data.formData.stdCred.section, data.formData.stdCred.year)
+            const value1 = generateClassId(data.formData.stdCred.class, data.formData.stdCred.year)
             // console.log(value1)
             const arr3 = await classModel.findOne({ classId: value1 })
             // console.log(arr3.length)

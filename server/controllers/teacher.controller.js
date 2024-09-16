@@ -365,7 +365,8 @@ const findPercent = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].answer == "yes" || arr[i].answer == "Yes")
             ans++
-        if (arr[i].answer == "NA" || arr[i].answer == "NE")
+        // if (arr[i].answer == "NA" || arr[i].answer == "NE")
+        if (arr[i].answer == "NA")
             continue
         count++
     }
@@ -389,7 +390,7 @@ const findPercentForRecreational = (arr) => {
         else if (arr[i].answer == "E") count_E++
     }
     let ans = "Z"
-    let score = 0
+    // let score = 0
     let val = Math.max(count_A, count_B, count_C, count_D, count_E)
     if (val === count_A)
         ans = "A"
@@ -401,10 +402,11 @@ const findPercentForRecreational = (arr) => {
         ans = "D"
     else if (val === count_E)
         ans = "E"
-    score = (val / arr.length) * 100
+    // score = (val / arr.length) * 100
     return {
         mode: ans,
-        percent: score.toFixed(2)
+        // percent: score.toFixed(2)
+        percent: 0
     }
 }
 
@@ -606,39 +608,39 @@ const getStudentbyId = async (req, res) => {
 
 const submitTermTypeComment = async (req, res) => {
     try {
-    const id = req.body.id
-    let flag = true
-    // console.log(req.body)
-    const student = await studentModel.findOne({ regNo: id })
-    const section = student.section.find(sec => sec.sec === req.body.section)
-    const yearReport = section.yearReport.find(year => year.year === req.body.year)
-    const termReport = yearReport.termReport.find(term => term.term === req.body.term)
+        const id = req.body.id
+        let flag = true
+        // console.log(req.body)
+        const student = await studentModel.findOne({ regNo: id })
+        const section = student.section.find(sec => sec.sec === req.body.section)
+        const yearReport = section.yearReport.find(year => year.year === req.body.year)
+        const termReport = yearReport.termReport.find(term => term.term === req.body.term)
 
-    if (req.body.type === "personalQA")
-        termReport.comment.personalComment = req.body.comments
-    else if (req.body.type === "socialQA")
-        termReport.comment.socialComment = req.body.comments
-    else if (req.body.type === "academicQA")
-        termReport.comment.academicComment = req.body.comments
-    else if (req.body.type === "recreationalQA")
-        termReport.comment.recreationalComment = req.body.comments
-    else if (req.body.type === "occupationalQA")
-        termReport.comment.occupationalComment = req.body.comments
-    else if (termReport.comment.personalComment && termReport.comment.socialComment && termReport.comment.academicComment && termReport.comment.occupationalComment && termReport.comment.recreationalComment) {
-        // console.log("-------")
-        termReport.comment.termComment = req.body.comments
-    }
-    else {
-        flag = false
-        res.status(201).json("no comments updated")
-    }
+        if (req.body.type === "personalQA")
+            termReport.comment.personalComment = req.body.comments
+        else if (req.body.type === "socialQA")
+            termReport.comment.socialComment = req.body.comments
+        else if (req.body.type === "academicQA")
+            termReport.comment.academicComment = req.body.comments
+        else if (req.body.type === "recreationalQA")
+            termReport.comment.recreationalComment = req.body.comments
+        else if (req.body.type === "occupationalQA")
+            termReport.comment.occupationalComment = req.body.comments
+        else if (termReport.comment.personalComment && termReport.comment.socialComment && termReport.comment.academicComment && termReport.comment.occupationalComment && termReport.comment.recreationalComment) {
+            // console.log("-------")
+            termReport.comment.termComment = req.body.comments
+        }
+        else {
+            flag = false
+            res.status(201).json("no comments updated")
+        }
 
-    // console.log(termReport.comment.termComment)
-    // console.log(termReport)
-    if (flag) {
-        student.save()
-        res.status(200).json("Success")
-    }
+        // console.log(termReport.comment.termComment)
+        // console.log(termReport)
+        if (flag) {
+            student.save()
+            res.status(200).json("Success")
+        }
     } catch (err) {
         // console.log(err)
         res.status(400).send(false)

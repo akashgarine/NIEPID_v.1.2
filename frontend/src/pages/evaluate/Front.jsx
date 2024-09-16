@@ -160,7 +160,7 @@ const Front = () => {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <button style={styles.button} onClick={() => navigateTo('/teacher/term/termEntry/eval/recreational')}>Recreational</button>
-            <label style={{ fontSize: '13px' }}>{"Percentage : " + recreationalPercent + "%"}</label>
+            {/* <label style={{ fontSize: '13px' }}>{"Percentage : " + recreationalPercent + "%"}</label> */}
             <label style={{ fontSize: '13px' }}>{"Mode : " + mode}</label>
           </div>
         </div>

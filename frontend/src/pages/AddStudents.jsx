@@ -299,7 +299,7 @@ function AddStudents() {
     };
 
     const initialStdCred = {
-        section: '',
+        class: '',
         year: '1',
     };
 
@@ -522,10 +522,7 @@ function AddStudents() {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
-                },
-                    {
-                        withCredentials: true
-                    })
+                },{withCredentials: true})
                     .then(() => {
                         setFormData({
                             details: {
@@ -2637,14 +2634,14 @@ function AddStudents() {
                 </table>
 
                 <label className={classes.label}>
-                    Section:
+                    Class:
                     <select
                         name="section"
                         value={formData.stdCred.section}
                         onChange={handleChange}
                         className={classes.textInput}
                     >
-                        <option value="">Select Section</option>
+                        <option value="">Select Class</option>
                         <option value="preprimary">preprimary</option>
                         <option value="primary1">primary1</option>
                         <option value="primary2">primary2</option>

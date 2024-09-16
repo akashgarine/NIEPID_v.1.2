@@ -382,12 +382,12 @@ const Occupational = () => {
                                         className={classes.textInput}
                                     >
                                         <option value="">Select an option</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                        <option value="Yes">+</option>
+                                        {/* <option value="No">No</option> */}
                                         <option value="NA">NA</option>
                                         <option value="NE">NE</option>
-                                        <option value="C-P1">C-P1</option>
-                                        <option value="C-P2">C-P2</option>
+                                        <option value="C-P1">VP</option>
+                                        <option value="C-P2">PP</option>
                                     </select>
                                 </td>
                             </tr>
@@ -412,12 +412,12 @@ const Occupational = () => {
                                     className={classes.textInput}
                                 >
                                     <option value="">Select an option</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                    <option value="NA">NA</option>
-                                    <option value="NE">NE</option>
-                                    <option value="C-P1">C-P1</option>
-                                    <option value="C-P2">C-P2</option>
+                                        <option value="Yes">+</option>
+                                        {/* <option value="No">No</option> */}
+                                        <option value="NA">NA</option>
+                                        <option value="NE">NE</option>
+                                        <option value="C-P1">VP</option>
+                                        <option value="C-P2">PP</option>
                                 </select>
                             </td>
                         </tr>
