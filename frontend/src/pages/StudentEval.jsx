@@ -31,7 +31,7 @@ function StudentEval(params) {
   async function getStudentBasicDetails() {
     await axios
       .post(
-        "https://niepid.onrender.com/getstudentbasicdetails",
+        "http://localhost:4000/getstudentbasicdetails",
         { username: username },
         {
           withCredentials: true,
@@ -54,7 +54,7 @@ function StudentEval(params) {
         }
         await axios
           .post(
-            "https://niepid.onrender.com/studentevaluation",
+            "http://localhost:4000/studentevaluation",
             {
               studentusername: report.student,
               termYear: report.termYear,
@@ -73,7 +73,7 @@ function StudentEval(params) {
   async function getStudentEvaluation() {
     await axios
       .post(
-        "https://niepid.onrender.com/getstudentevaluation",
+        "http://localhost:4000/getstudentevaluation",
         { username: username },
         {
           withCredentials: true,

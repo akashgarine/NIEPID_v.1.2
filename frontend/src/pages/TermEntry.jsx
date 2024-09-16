@@ -25,6 +25,8 @@ const Front = () => {
         recreationalPercent: ''
     })
 
+    const [termEvaluated,setTermEvaluated] = useState(false);
+
     const [comments, setComments] = useState(["", "", "", "", "", ""]);
     const [terms, setTerms] = useState([]);
 
@@ -51,7 +53,7 @@ const Front = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get("https://niepid.onrender.com/teacher/getStudentbyId", {
+                const res = await axios.get("http://localhost:4000/teacher/getStudentbyId", {
                     headers: {
                         id: id,
                         "Content-Type": "application/json",
@@ -72,8 +74,6 @@ const Front = () => {
                                     if (yearData.termReport[3].evaluated.recreational)
                                         setEvaluationComplete(true);
                 }
-
-                setPercent(yearData.percent)
 
                 const t = []
                 yearData.termReport.map(term => {
@@ -103,7 +103,7 @@ const Front = () => {
 
     const handleSubmit = async () => {
         try {
-            await axios.post("https://niepid.onrender.com/teacher/yearTypeComment", {
+            await axios.post("http://localhost:4000/teacher/yearTypeComment", {
                 id: id,
                 section: section,
                 year: year,
