@@ -459,7 +459,7 @@ const StudentPerformance = () => {
     //console.log(studentInfo)
 
     const chartData = {
-        labels: ['Personal', 'Social', 'Academic', 'Occupational', 'Recreational'],
+        labels: ['Personal', 'Social', 'Academic', 'Occupational'],
         datasets: [
             ...selectedYearData.termReport.map(termData => ({
                 label: termData.term,
@@ -468,22 +468,26 @@ const StudentPerformance = () => {
                     termData.percent.socialPercent,
                     termData.percent.academicPercent,
                     termData.percent.occupationalPercent,
-                    termData.percent.recreationalPercent
+                    //termData.percent.recreationalPercent
                 ],
                 backgroundColor: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.5)`
             })),
-            {
+
+            ...(selectedYearData.termReport.length >= 4
+            ? [{
                 label: 'Average',
                 data: [
                     selectedYearData.termReport.reduce((acc, termData) => acc + termData.percent.personalPercent, 0) / selectedYearData.termReport.length,
                     selectedYearData.termReport.reduce((acc, termData) => acc + termData.percent.socialPercent, 0) / selectedYearData.termReport.length,
                     selectedYearData.termReport.reduce((acc, termData) => acc + termData.percent.academicPercent, 0) / selectedYearData.termReport.length,
                     selectedYearData.termReport.reduce((acc, termData) => acc + termData.percent.occupationalPercent, 0) / selectedYearData.termReport.length,
-                    selectedYearData.termReport.reduce((acc, termData) => acc + termData.percent.recreationalPercent, 0) / selectedYearData.termReport.length
+                    //selectedYearData.termReport.reduce((acc, termData) => acc + termData.percent.recreationalPercent, 0) / selectedYearData.termReport.length
                 ],
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderWidth: 1
-            }
+            }]
+            : []
+        )
         ]
     };
 
@@ -557,7 +561,7 @@ const StudentPerformance = () => {
                                     <p><strong>Social:</strong> {selectedYearData.percent.socialPercent}%</p>
                                     <p><strong>Academic:</strong> {selectedYearData.percent.academicPercent}%</p>
                                     <p><strong>Occupational:</strong> {selectedYearData.percent.occupationalPercent}%</p>
-                                    <p><strong>Recreational:</strong> {selectedYearData.percent.recreationalPercent}%</p>
+                                    <p><strong>Recreational:</strong> {selectedYearData.percent.mode}%</p>
                                 </div>
                                 <div className="year-summary-box">
                                     <h3>Year Comments</h3>

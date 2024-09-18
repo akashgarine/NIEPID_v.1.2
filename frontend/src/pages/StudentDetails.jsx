@@ -311,7 +311,7 @@ const Student = () => {
                 console.log("Hello")
                 const role = localStorage.getItem("role");
                 console.log(role)
-                const res = await axios.get(`http://localhost:4000/${role}/viewStudentDetails`, {
+                const res = await axios.get(`https://niepid-yrdn.onrender.com/${role}/viewStudentDetails`, {
                     headers: {
                         regNo: regNo,
                         "Content-Type": "application/json",
@@ -398,69 +398,69 @@ const Student = () => {
                 <table className={classes.table}>
                     <tbody>
                         <tr>
-                            <th className={classes.th}>Registration Number</th>
+                            <th className={classes.th}>Registration Number:</th>
                             <td className={classes.td}>{studentData.info.regNo}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Registration Date</th>
+                            <th className={classes.th}>Registration Date:</th>
                             {/* <td className={classes.td}>{new Date(studentData.info.regDate.$date).toLocaleDateString()}</td> */}
                             <td className={classes.td}>{registrationDate}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Date of Birth</th>
+                            <th className={classes.th}>Date of Birth:</th>
                             {/* <td className={classes.td}>{new Date(studentData.info.dob.$date).toLocaleDateString()}</td> */}
                             <td className={classes.td}>{dateOfBirth}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Name</th>
+                            <th className={classes.th}>Name:</th>
                             <td className={classes.td}>{studentData.info.name}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Sex</th>
+                            <th className={classes.th}>Sex:</th>
                             <td className={classes.td}>{studentData.info.sex}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Information</th>
+                            <th className={classes.th}>Informant:</th>
                             <td className={classes.td}>{studentData.info.information}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Education</th>
+                            <th className={classes.th}>Education:</th>
                             <td className={classes.td}>{studentData.info.education}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Referred By</th>
+                            <th className={classes.th}>Referred by:</th>
                             <td className={classes.td}>{studentData.info.refBy}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Occupation</th>
+                            <th className={classes.th}>Occupation:</th>
                             <td className={classes.td}>{studentData.info.occupation}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Aadhar Number</th>
+                            <th className={classes.th}>Aadhar Number:</th>
                             <td className={classes.td}>{studentData.info.aadharNo}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Payment Type</th>
+                            <th className={classes.th}>Payment Type:</th>
                             <td className={classes.td}>{studentData.info.paymentType}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Mobile Number</th>
+                            <th className={classes.th}>Mobile Number:</th>
                             <td className={classes.td}>{studentData.info.mobileNo}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Purpose of Visit</th>
+                            <th className={classes.th}>Purpose Visit:</th>
                             <td className={classes.td}>{studentData.info.purposeVisit}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Treatment Undergone</th>
+                            <th className={classes.th}>Treatment UnderGone:</th>
                             <td className={classes.td}>{studentData.info.treatmentUnderGone}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Type of Treatment</th>
+                            <th className={classes.th}>Type of treatment:</th>
                             <td className={classes.td}>{studentData.info.typeOfTreatment}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Therapeutic</th>
+                            <th className={classes.th}>Therapculic:</th>
                             <td className={classes.td}>{studentData.info.therapeutic}</td>
                         </tr>
 
@@ -474,31 +474,31 @@ const Student = () => {
                 <table className={classes.table}>
                     <tbody>
                         <tr>
-                            <th className={classes.th}>Has Dysmorphic Features</th>
+                            <th className={classes.th}>Has dysmorphic features</th>
                             <td className={classes.td}>{studentData.presentingComplaints.hasDysmorphicFeatures}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Small Sized Head</th>
+                            <th className={classes.th}>Small sized head</th>
                             <td className={classes.td}>{studentData.presentingComplaints.smallSizedHead}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Able to Walk and Run</th>
+                            <th className={classes.th}>Able to walk and run</th>
                             <td className={classes.td}>{studentData.presentingComplaints.ableToWalkAndRun}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>No Age-Appropriate Comprehension and Speech Development</th>
+                            <th className={classes.th}>No age appropriate comprehension and speech development</th>
                             <td className={classes.td}>{studentData.presentingComplaints.noAgeAppropriateComprehensionAndSpeechDevelopment}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Emotionally Attached to Parents and Recognises All Family Members</th>
+                            <th className={classes.th}>Emotionally attached to parents and recognises all family members</th>
                             <td className={classes.td}>{studentData.presentingComplaints.emotionallyAttachedToParentsAndRecognisesAllFamilyMembers}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Has Adequate Eye Contact and Social Smile</th>
+                            <th className={classes.th}>Has adequate eye contact and social smile</th>
                             <td className={classes.td}>{studentData.presentingComplaints.hasAdequateEyeContactAndSocialSmile}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Eats Self</th>
+                            <th className={classes.th}>Eats self</th>
                             <td className={classes.td}>{studentData.presentingComplaints.eatsSelf}</td>
                         </tr>
                         <tr>
@@ -540,7 +540,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.chromosomalAberrations}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Rh Incompatibility</th>
+                            <th className={classes.th}>Rh incompatibility</th>
                             <td className={classes.td}>{studentData.history.rhIncompatibility}</td>
                         </tr>
                         <tr>
@@ -552,15 +552,15 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.consanguinity}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Threatened Abortion</th>
+                            <th className={classes.th}>Threatened abortion</th>
                             <td className={classes.td}>{studentData.history.threatenedAbortion}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Potentially Harmful Medication</th>
+                            <th className={classes.th}>Potentially harmful medication</th>
                             <td className={classes.td}>{studentData.history.potentiallyHarmfulMedication}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Antenatal Check-Ups</th>
+                            <th className={classes.th}>Antenatal Check Ups</th>
                             <td className={classes.td}>{studentData.history.antenatalCheckUps}</td>
                         </tr>
                         <tr>
@@ -576,7 +576,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.pregnancy}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Attempted Abortion</th>
+                            <th className={classes.th}>Attempted abortion</th>
                             <td className={classes.td}>{studentData.history.attemptedAbortion}</td>
                         </tr>
                         <tr>
@@ -604,7 +604,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.alcohol}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Age at Conception</th>
+                            <th className={classes.th}>Age at conception</th>
                             <td className={classes.td}>{studentData.history.ageAtConception}</td>
                         </tr>
                         <tr>
@@ -620,11 +620,11 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.jaundice1}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Fetal Movement</th>
+                            <th className={classes.th}>Fetal movements</th>
                             <td className={classes.td}>{studentData.history.fetalMovement}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Bleeding During Late Pregnancy</th>
+                            <th className={classes.th}>Bleeding during late Pregnancy</th>
                             <td className={classes.td}>{studentData.history.bleedingDuringLatePregnancy}</td>
                         </tr>
                         <tr>
@@ -632,7 +632,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.labourDuration}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Prolapsed Cord</th>
+                            <th className={classes.th}>Prolapsed cord</th>
                             <td className={classes.td}>{studentData.history.prolapsedCord}</td>
                         </tr>
                         <tr>
@@ -644,11 +644,11 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.multiplePregnancies}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Feeding Problem</th>
+                            <th className={classes.th}>Feeding problems</th>
                             <td className={classes.td}>{studentData.history.feedingProblem}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Color of the Baby</th>
+                            <th className={classes.th}>Color of the baby</th>
                             <td className={classes.td}>{studentData.history.colorOfTheBaby}</td>
                         </tr>
                         <tr>
@@ -656,7 +656,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.significantInjury}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Delivery Place</th>
+                            <th className={classes.th}>Delivery place</th>
                             <td className={classes.td}>{studentData.history.deliveryPlace}</td>
                         </tr>
                         <tr>
@@ -664,7 +664,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.term}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Delivery Type</th>
+                            <th className={classes.th}>Delivery type</th>
                             <td className={classes.td}>{studentData.history.deliveryType}</td>
                         </tr>
                         <tr>
@@ -672,7 +672,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.abnormalPresentation}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Respiratory Distress</th>
+                            <th className={classes.th}>Respiratory distress</th>
                             <td className={classes.td}>{studentData.history.respiratoryDistress}</td>
                         </tr>
                         <tr>
@@ -684,15 +684,15 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.deliveryConductedBy}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Labour Induction</th>
+                            <th className={classes.th}>Labour induction</th>
                             <td className={classes.td}>{studentData.history.labourInduction}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Birth Cry</th>
+                            <th className={classes.th}>Birth cry</th>
                             <td className={classes.td}>{studentData.history.birthCry}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Separation From Mother Immediately After Delivery</th>
+                            <th className={classes.th}>Seperation from Mother immediately after delivery</th>
                             <td className={classes.td}>{studentData.history.separationFromMotherImmediatelyAfterDelivery}</td>
                         </tr>
                         <tr>
@@ -704,7 +704,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.thyroidDysfunctions}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Nutritional Disorders</th>
+                            <th className={classes.th}>Nutritional disorders</th>
                             <td className={classes.td}>{studentData.history.nutritionalDisorders}</td>
                         </tr>
                         <tr>
@@ -712,7 +712,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.history.infections3}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Significant Head Injury</th>
+                            <th className={classes.th}>Significant head injury</th>
                             <td className={classes.td}>{studentData.history.significantHeadInjury}</td>
                         </tr>
                     </tbody>
@@ -726,7 +726,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.familyHistory.typeOfFamily}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Mental Retardation</th>
+                            <th className={classes.th}>Mental retardation</th>
                             <td className={classes.td}>{studentData.familyHistory.mentalRetardation}</td>
                         </tr>
                         <tr>
@@ -734,15 +734,15 @@ const Student = () => {
                             <td className={classes.td}>{studentData.familyHistory.consanguinity}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Seizures or Convulsions</th>
+                            <th className={classes.th}>Seizures Or Convulsions</th>
                             <td className={classes.td}>{studentData.familyHistory.seizuresOrConvulsions}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Hearing Problems</th>
+                            <th className={classes.th}>Hearing problems</th>
                             <td className={classes.td}>{studentData.familyHistory.hearingProblems}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Speech Problems</th>
+                            <th className={classes.th}>Speech problems</th>
                             <td className={classes.td}>{studentData.familyHistory.speechProblems}</td>
                         </tr>
                         <tr>
@@ -750,43 +750,43 @@ const Student = () => {
                             <td className={classes.td}>{studentData.familyHistory.mentalIllness}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Autism or Spectrum Disorder</th>
+                            <th className={classes.th}>Autism Or Spectrum Disorder</th>
                             <td className={classes.td}>{studentData.familyHistory.autismOrSpectrumDisorder}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Visual Problem</th>
+                            <th className={classes.th}>Visual problems</th>
                             <td className={classes.td}>{studentData.familyHistory.visualProblem}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Locomotor Problem</th>
+                            <th className={classes.th}>Locomotor problem</th>
                             <td className={classes.td}>{studentData.familyHistory.locomotorProblem}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Any Family History of Delay, Disability, Disorder, Disease, Deficiency</th>
+                            <th className={classes.th}>Any Family history of delay/disability/disorder/disease/deficiency</th>
                             <td className={classes.td}>{studentData.familyHistory.anyFamilyHistoryOfDelayDisabilityDisorderDiseaseDeficiency}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Learning Disabilities</th>
+                            <th className={classes.th}>Learning disabilities</th>
                             <td className={classes.td}>{studentData.familyHistory.learningDisabilities}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Family Involvement In</th>
+                            <th className={classes.th}>Family Involvement in</th>
                             <td className={classes.td}>{studentData.familyHistory.familyInvolvementIn}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Positive Issues with Neighborhood Because of the Client</th>
+                            <th className={classes.th}>Positive Issues with neighborhood because of the client</th>
                             <td className={classes.td}>{studentData.familyHistory.positiveIssuesWithNeighborhoodBecauseOfTheClient}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Personal Needs of the Client</th>
+                            <th className={classes.th}>Personal needs of the client</th>
                             <td className={classes.td}>{studentData.familyHistory.personalNeedsOfTheClient}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Visits to the Family by Others</th>
+                            <th className={classes.th}>Visits to the family by others</th>
                             <td className={classes.td}>{studentData.familyHistory.visitsToTheFamilyByOthers}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Family's Visits Outside</th>
+                            <th className={classes.th}>Family's visits outside</th>
                             <td className={classes.td}>{studentData.familyHistory.familysVisitsOutside}</td>
                         </tr>
                         <tr>
@@ -794,15 +794,15 @@ const Student = () => {
                             <td className={classes.td}>{studentData.familyHistory.playAndLeisureTimeActivities}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Educational Activities</th>
+                            <th className={classes.th}>Educational activities</th>
                             <td className={classes.td}>{studentData.familyHistory.educationalActivities}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Support of Extended Family</th>
+                            <th className={classes.th}>Support of extended family</th>
                             <td className={classes.td}>{studentData.familyHistory.supportOfExtendedFamily}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Negative Issues with Neighborhood Because of the Client</th>
+                            <th className={classes.th}>Negative Issues with neighbourhood because of the Client</th>
                             <td className={classes.td}>{studentData.familyHistory.negativeIssuesWithNeighborhoodBecauseOfTheClient}</td>
                         </tr>
                         <tr>
@@ -814,19 +814,19 @@ const Student = () => {
                             <td className={classes.td}>{studentData.familyHistory.educationalHistory}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Teacher Report</th>
+                            <th className={classes.th}>Teachers report/School report(in case of non avail)</th>
                             <td className={classes.td}>{studentData.familyHistory.teacherReport}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Overall Performance</th>
+                            <th className={classes.th}>Overall performance</th>
                             <td className={classes.td}>{studentData.familyHistory.overallPerformance}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Type of Schooling</th>
+                            <th className={classes.th}>Type Of Schooling</th>
                             <td className={classes.td}>{studentData.familyHistory.typeOfSchooling}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>If Yes, Reason for Discontinuing Schooling</th>
+                            <th className={classes.th}>If Yes Reason for discontinuing Schooling</th>
                             <td className={classes.td}>{studentData.familyHistory.ifYesReasonForDiscontinuingSchooling}</td>
                         </tr>
                         <tr>
@@ -834,7 +834,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.familyHistory.involvementInPlay}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Observes Others Playing</th>
+                            <th className={classes.th}>Observes others playing</th>
                             <td className={classes.td}>{studentData.familyHistory.observesOthersPlaying}</td>
                         </tr>
                         <tr>
@@ -858,11 +858,11 @@ const Student = () => {
                             <td className={classes.td}>{studentData.familyHistory.anySignificantDetails}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Vocational Training</th>
+                            <th className={classes.th}>Vocational training</th>
                             <td className={classes.td}>{studentData.familyHistory.vocationalTraining}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Occupational History</th>
+                            <th className={classes.th}>Occupational History(Client)</th>
                             <td className={classes.td}>{studentData.familyHistory.occupationalHistory}</td>
                         </tr>
                         <tr>
@@ -876,63 +876,63 @@ const Student = () => {
                 <table className={classes.table}>
                     <tbody>
                         <tr>
-                            <th className={classes.th}>Head Control (3 to 5 Months)</th>
+                            <th className={classes.th}>Head Control:(3-5 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.headControl3To5Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Rolling (3 to 5 Months)</th>
+                            <th className={classes.th}>Rolling:(3-5 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.rolling3To5Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Independent Sitting (6 to 8 Months)</th>
+                            <th className={classes.th}>Independent Sitting:(6-8 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.independentSitting6To8Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Crawling (6 to 8 Months)</th>
+                            <th className={classes.th}>Crawling:(6-8 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.crawling6To8Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Walking (11 to 14 Months)</th>
+                            <th className={classes.th}>Walking:(11-14 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.walking11To14Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Bilateral Holding of Toys (3 to 6 Months)</th>
+                            <th className={classes.th}>Bilateral Holding Of Toys(3-6 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.bilateralHoldingOfToys3To6Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Holding Small Items with Finger and Thumb (6 to 9 Months)</th>
+                            <th className={classes.th}>Holding small items with finger and thumb(6-9 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.holdingSmallItemsWithFingerAndThumb6To9Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Scribbling with a Crayon (12 to 18 Months)</th>
+                            <th className={classes.th}>Scribbling with a crayon(12-18 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.scribblingWithACrayon12To18Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Babbling (4 to 8 Months)</th>
+                            <th className={classes.th}>Babbling(4-8 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.babbling4To8Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>First Words (11 to 12 Months)</th>
+                            <th className={classes.th}>First Words(11-12 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.firstWords11To12Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Two-Word Phrases (18 to 24 Months)</th>
+                            <th className={classes.th}>Two words phrases(18-24 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.twoWordsPhrases18To24Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Sentences (2 to 3 Years)</th>
+                            <th className={classes.th}>Sentences(2yrs 6 months-3 years)</th>
                             <td className={classes.td}>{studentData.developmentHistory.sentences2To3Years}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Smiles at Others (3 to 4 Months)</th>
+                            <th className={classes.th}>Smiles at others(2-4 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.smilesAtOthers3To4Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Responds to Name (7 to 12 Months)</th>
+                            <th className={classes.th}>Responds to Name(7-12 Months)</th>
                             <td className={classes.td}>{studentData.developmentHistory.respondsToName7To12Months}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Feeds Self (3 to 4 Years)</th>
+                            <th className={classes.th}>Feeds Self(3-4 Years)</th>
                             <td className={classes.td}>{studentData.developmentHistory.feedsSelf3To4Years}</td>
                         </tr>
                         <tr>
@@ -944,7 +944,7 @@ const Student = () => {
                             <td className={classes.td}>{studentData.developmentHistory.motor}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Speech and Language</th>
+                            <th className={classes.th}>Speech And Language</th>
                             <td className={classes.td}>{studentData.developmentHistory.speechAndLanguage}</td>
                         </tr>
                         <tr>
@@ -952,15 +952,15 @@ const Student = () => {
                             <td className={classes.td}>{studentData.developmentHistory.social}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Significant Medical Illness</th>
+                            <th className={classes.th}>Significant Medical illness</th>
                             <td className={classes.td}>{studentData.developmentHistory.significantMedicalIllness}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Significant Surgical Illness</th>
+                            <th className={classes.th}>Significant Surgical illness</th>
                             <td className={classes.td}>{studentData.developmentHistory.significantSurgicalIllness}</td>
                         </tr>
                         <tr>
-                            <th className={classes.th}>Any Negative Reactions</th>
+                            <th className={classes.th}>Any negative reactions/allergy to medication?</th>
                             <td className={classes.td}>{studentData.developmentHistory.anyNegativeReactions}</td>
                         </tr>
                     </tbody>

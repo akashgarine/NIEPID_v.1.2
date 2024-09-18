@@ -423,9 +423,9 @@ const viewHistory = async (req, res) => {//expecting student details form req
         if (!std) {
             res.status(203).json({ message: "stdent doesnt exists" })
         }
-        else if (std.section.length === 1 && std.section[0].yearReport.length === 1) {
-            res.status(202).json({ data: "Year not completed" });
-        }
+        // else if (std.section.length === 1 && std.section[0].yearReport.length === 1) {
+        //     res.status(202).json({ data: "Year not completed" });
+        // }
         else {
             // console.log(std)
             res.status(200).json(std)

@@ -136,7 +136,7 @@ function AddStudents() {
 
     const initialInfo = {
         regNo: '',
-        regDate: currentDate,
+        regDate: '',
         dob: '',
         name: '',
         sex: '',
@@ -431,6 +431,16 @@ function AddStudents() {
                 return; // Prevent further processing
             }
         }
+        if (name === 'regDate') {
+            const selectedDate = new Date(value);
+            const currDate = new Date()
+            currDate.setDate(currDate.getDate() - 1);
+
+            if (selectedDate > currDate) {
+                alert("Registration must be earlier than today.");
+                return; // Prevent further processing
+            }
+        }
 
         setFormData((prevFormData) => ({
             ...prevFormData,
@@ -513,6 +523,15 @@ function AddStudents() {
             alert("Mobile No. must be 10 digits");
             return; // Prevent form submission
         }
+        const registeredDate = formData.details.info.regDate;
+        const bodDate = formData.details.info.dob;
+        //const currDate = new Date()
+        //currDate.setDate(currDate.getDate() - 1);
+
+        if (registeredDate < bodDate) {
+            alert("Registration must be greater than Date of Birth.");
+            return; // Prevent further processing
+        }
 
         const answer = window.confirm("are you sure you want to submit ?");
         if (answer) {
@@ -592,12 +611,12 @@ function AddStudents() {
                 <label className={classes.label}>
                     Registration Date:
                     <input
-                        type="text"
+                        type="date"
                         name="regDate"
-                        value={formattedDate}
-                        // onChange={(e) => handleSectionChange('info', e)}
+                        value={formData.details.info.regDate}
+                        onChange={(e) => handleSectionChange('info', e)}
                         className={classes.textInput}
-                        disabled={true}
+                        
                     />
                 </label>
                 <label className={classes.label}>
@@ -635,7 +654,7 @@ function AddStudents() {
                     </select>
                 </label>
                 <label className={classes.label}>
-                    Information:
+                Informant:
                     <input
                         type="text"
                         name="information"
@@ -655,7 +674,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Refered by:
+                Referred by:
                     <input
                         type="text"
                         name="refBy"
@@ -675,7 +694,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Aadhar no:
+                Aadhar No:
                     <input
                         type="text"
                         name="aadharNo"
@@ -695,7 +714,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Mobile no:
+                Mobile No:
                     <input
                         type="text"
                         name="mobileNo"
@@ -715,7 +734,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Previous Consultations and Treatment:
+                Previous Consultations and treatment:
                     <input
                         type="checkbox"
                         name="previousConsultationAndTreatement"
@@ -725,7 +744,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Nature of Consultations:
+                if Yes, Nature of consultations:
                     <input
                         type="text"
                         name="isYesNatureOfConsultations"
@@ -735,7 +754,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Treatment Undergone:
+                Treatment UnderGone:
                     <input
                         type="checkbox"
                         name="treatmentUnderGone"
@@ -745,7 +764,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Type of Treatment:
+                Type of treatment:
                     <input
                         type="text"
                         name="typeOfTreatment"
@@ -755,7 +774,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    Therapeutic:
+                Therapculic:
                     <input
                         type="text"
                         name="therapeutic"
@@ -765,7 +784,7 @@ function AddStudents() {
                     />
                 </label>
                 <label className={classes.label}>
-                    History of Present Condition:
+                HISTORY OF PRESENTATION CONDITION:
                 </label>
                 <table className={classes.table}>
                     <thead>
@@ -796,7 +815,7 @@ function AddStudents() {
                 <table className={classes.table}>
                     <thead>
                         <tr>
-                            <th className={classes.th}>Record Verbatim</th>
+                        <th className={classes.th}>Record Verbtim</th>
                             <th className={classes.th}>On Set</th>
                             <th className={classes.th}>Duration</th>
                         </tr>
@@ -895,7 +914,7 @@ function AddStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <td className={classes.td}>Reaches, grasps and manipulates objects</td>
+                        <td className={classes.td}>Reaches, grasps and manipulates the objects</td>
                             <td className={classes.td}>
                                 <input
                                     type="text"
@@ -918,7 +937,7 @@ function AddStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <td className={classes.td}>Emotionally attached to parents</td>
+                        <td className={classes.td}>Emotionally attached to parents and recognises all family members</td>
                             <td className={classes.td}>
                                 <input
                                     type="text"
@@ -987,7 +1006,7 @@ function AddStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <td className={classes.td}>Indicates toilet needs</td>
+                        <td className={classes.td}>Indicates the toilet needs</td>
                             <td className={classes.td}>
                                 <input
                                     type="text"
@@ -1986,7 +2005,7 @@ function AddStudents() {
                         </tr>
                         <tr>
                             <td className={classes.td}>10</td>
-                            <td className={classes.td}>Negative Issues with neighbourhood because of the client</td>
+                            <td className={classes.td}>Negative Issues with neighbourhood because of the Client</td>
                             <td className={classes.td}>
                                 <input
                                     type="text"
@@ -2049,7 +2068,7 @@ function AddStudents() {
                         </tr>
                         <tr>
                             <td className={classes.td}>4</td>
-                            <td className={classes.td}>Overall Performance</td>
+                            <td className={classes.td}>Overall performance</td>
                             <td className={classes.td}>
                                 <input
                                     type="text"
@@ -2062,7 +2081,7 @@ function AddStudents() {
                         </tr>
                         <tr>
                             <td className={classes.td}>5</td>
-                            <td className={classes.td}>Type of Schooling</td>
+                            <td className={classes.td}>Type Of Schooling</td>
                             <td className={classes.td}>
                                 <input
                                     type="text"
@@ -2503,7 +2522,7 @@ function AddStudents() {
                         </tr>
                         <tr>
                             <td className={classes.td}>3</td>
-                            <td className={classes.td}>Feeds Self(3-4 years)</td>
+                            <td className={classes.td}>Feeds Self(3-4 Years)</td>
                             <td className={classes.td}>
                                 <input
                                     type="text"
@@ -2641,10 +2660,10 @@ function AddStudents() {
                         onChange={handleChange}
                         className={classes.textInput}
                     >
-                        <option value="">Select Class</option>
-                        <option value="preprimary">preprimary</option>
-                        <option value="primary1">primary1</option>
-                        <option value="primary2">primary2</option>
+                         <option value="">Select Class</option>
+                        <option value="preprimary">Preprimary</option>
+                        <option value="primary1">Primary-I</option>
+                        <option value="primary2">Primary-II</option>
                     </select>
                 </label>
                 <label className={classes.label}>
