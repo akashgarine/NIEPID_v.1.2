@@ -2,23 +2,10 @@ const express=require('express');
 const app=express();
 const jwt=require('jsonwebtoken')
 const cors=require('cors')
-
+require('dotenv').config();
 app.use(cors()) 
 
-// const allowedOrigins = ['https://niepid-presentation.vercel.app', 'http://localhost:3000'];
-
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   }
-// }))
-
 //Routes
-
 const studentRoutes=require('./routes/student.route')
 const adminRoutes=require('./routes/admin.route')
 const teacherRoutes=require('./routes/teacher.route')
@@ -28,9 +15,9 @@ const {verifyToken,isAdmin,isStudent,isTeacher,isPrinciple}=require('./middlewar
 
 //mongDB connection
 const mongoose=require('mongoose')
-// mongoose.connect(process.env.MONGO_URL)
-// mongoose.connect("mongodb+srv://niepid:niepid@niepid.pmnq6.mongodb.net/?retryWrites=true&w=majority&appName=NIEPID")
-mongoose.connect("mongodb://127.0.0.1:27017/niepid_test")
+mongoose.connect(process.env.MONGODB_URL)
+//For localhost uncomment the below line and comment above line***
+//mongoose.connect("mongodb://127.0.0.1:27017/niepid_test")
 .then((res)=>{console.log("connected successfully")})
 .catch((err)=>{console.log(err)})
 
