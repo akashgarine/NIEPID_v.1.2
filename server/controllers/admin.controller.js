@@ -16,15 +16,16 @@ const { type } = require('os')
 const editTeacher = async (req, res) => {
     const id = req.params.id;
     console.log(id);
+    console.log(req.body)
     const { teacherId, teacherName, email, teacherMNo, classId } = req.body;
     const mno = String(teacherMNo)
     const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     if (!regex.test(email)) {
-        return res.status(400).json({ msg: `Invalid email: ${email}` });
+        return res.status(400).json({ message: `Invalid email: ${email}` });
     } else if (mno.length !== 10) {
-        return res.status(400).json({ msg: `Invalid Mobile No. : ${teacherMNo}` });
+        return res.status(400).json({ message: `Invalid Mobile No. : ${teacherMNo}` });
     } else if (teacherId == "" || teacherName == "") {
-        return res.status(400).json({ msg: `Invalid Teacher Id or Name` });
+        return res.status(400).json({ message: `Invalid Teacher Id or Name` });
     }
     try {
         const existedTeacher = await teacherModel.findById(id);
@@ -38,13 +39,13 @@ const editTeacher = async (req, res) => {
             await classModel.findOneAndUpdate({ "classId": cls }, { "teacherId": teacherId })
         }
         if (!updatedTeacher || !updateUser) {
-            return res.status(404).json({ msg: 'Teacher not found' });
+            return res.status(404).json({ message: 'Teacher not found' });
         }
      
         res.status(200).json(updatedTeacher);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send({ message : 'Server Error' });
     }
 }
 
