@@ -41,7 +41,7 @@ const TeacherTable = () => {
       const response =
         role === "admin"
           ? await axios.get(
-              "http://localhost:4000/admin/viewTeacher",
+              "https://niepid-1-1.onrender.com/admin/viewTeacher",
               {
                 headers: {
                   "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const TeacherTable = () => {
               }
             )
           : await axios.get(
-              "http://localhost:4000/principle/viewTeacher",
+              "https://niepid-1-1.onrender.com/principle/viewTeacher",
               {
                 headers: {
                   "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const TeacherTable = () => {
       console.log(editedTeacher);
       const id = localStorage.getItem("teacherId");
       const response = await axios.put(
-        `http://localhost:4000/admin/updateTeacher/${id}`,
+        `https://niepid-1-1.onrender.com/admin/updateTeacher/${id}`,
         editedTeacher,
         {
           headers: {
@@ -138,7 +138,7 @@ const TeacherTable = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:4000/admin/updateTeacher/${id}`,
+        `https://niepid-1-1.onrender.com/admin/updateTeacher/${id}`,
         updatedTeacher,
         {
           headers: {

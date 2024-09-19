@@ -60,7 +60,7 @@ const PrincipalViewStudents = () => {
     const fetchStudentDetails = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:4000/principle/viewstudents', {
+            const response = await axios.get('https://niepid-1-1.onrender.com/principle/viewstudents', {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -81,7 +81,7 @@ const PrincipalViewStudents = () => {
     const fetchTeacherDetails = async (classId) => {
         try {
             console.log("Hello")
-            const response = await axios.get(`http://localhost:4000/principle/teacher/${classId}`, {
+            const response = await axios.get(`https://niepid-1-1.onrender.com/principle/teacher/${classId}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorage.getItem("token")}`
