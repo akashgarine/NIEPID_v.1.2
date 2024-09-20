@@ -32,7 +32,7 @@ function App() {
             const formData = new FormData();
             formData.append('file', selectedFile);
             // console.log(formData)
-            let response = await axios.post('https://niepid-1-1.onrender.com/admin/registerTeacher', formData, {
+            let response = await axios.post('http://localhost:4000/admin/registerTeacher', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -60,7 +60,7 @@ function App() {
         // console.log("Attempting to download file");
         // console.log(`Bearer ${localStorage.getItem("token")}`);
 
-        const response = await axios.get('https://niepid-1-1.onrender.com/admin/download', {
+        const response = await axios.get('http://localhost:4000/admin/download', {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

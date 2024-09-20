@@ -13,7 +13,7 @@ const Term = () => {
     const fetchStudentData = async () => {
       try {
         const id = localStorage.getItem("studentId");
-        const res = await axios.get("https://niepid-1-1.onrender.com/teacher/getStudentbyId", {
+        const res = await axios.get("http://localhost:4000/teacher/getStudentbyId", {
           headers: {
             id: id,
             "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const Term = () => {
       setYears([]);
       localStorage.setItem("section", section);
       const id = localStorage.getItem("studentId");
-      const res = await axios.get("https://niepid-1-1.onrender.com/teacher/getStudentbyId", {
+      const res = await axios.get("http://localhost:4000/teacher/getStudentbyId", {
         headers: {
           id: id,
           "Content-Type": "application/json",
@@ -80,6 +80,26 @@ const Term = () => {
 
   };
 
+  const replacePrimaryLabels = (text) => {
+    console.log(text)
+    if (!text) return '';
+    
+    return text
+      .replace(/preprimary_1/gi, 'Preprimary-1')
+      .replace(/preprimary_2/gi, 'Preprimary-2')
+      .replace(/preprimary_3/gi, 'Preprimary-3')
+      .replace(/primary1_1/gi, 'Primary-I-1')
+      .replace(/primary1_2/gi, 'Primary-I-2')
+      .replace(/primary1_3/gi, 'Primary-I-3')
+      .replace(/primary2_1/gi, 'Primary-II-1')
+      .replace(/primary2_2/gi, 'Primary-II-2')
+      .replace(/primary2_3/gi, 'Primary-II-3')
+      .replace(/preprimary/gi, 'Preprimary')
+      .replace(/primary1/gi, 'Primary-I')
+      .replace(/primary2/gi, 'Primary-II')
+      
+  };
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
@@ -95,7 +115,7 @@ const Term = () => {
       <div style={styles.buttonContainerBox}>
         <div style={styles.buttonContainer}>
           {sections.map((section) => (
-            <button key={section} onClick={() => handleSection(section)} style={styles.termButton}>{section}</button>
+            <button key={section} onClick={() => handleSection(section)} style={styles.termButton}>{replacePrimaryLabels(section)}</button>
           ))}
         </div>
         <div style={styles.buttonContainer}>

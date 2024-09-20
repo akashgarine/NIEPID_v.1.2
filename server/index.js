@@ -15,9 +15,9 @@ const {verifyToken,isAdmin,isStudent,isTeacher,isPrinciple}=require('./middlewar
 
 //mongDB connection
 const mongoose=require('mongoose')
-mongoose.connect(process.env.MONGODB_URL)
+//mongoose.connect(process.env.MONGODB_URL)
 //For localhost uncomment the below line and comment above line***
-//mongoose.connect("mongodb://127.0.0.1:27017/niepid_test")
+mongoose.connect("mongodb://127.0.0.1:27017/niepid_prototype")
 .then((res)=>{console.log("connected successfully")})
 .catch((err)=>{console.log(err)})
 

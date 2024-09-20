@@ -26,7 +26,7 @@ export default function Home() {
 
     const teacherId = localStorage.getItem("userId")
     console.log("hiiii")
-    axios.get('https://niepid-1-1.onrender.com/teacher/getStudents', {
+    axios.get('http://localhost:4000/teacher/getStudents', {
       headers: {
         id: teacherId,
         // id:"t2",
@@ -47,7 +47,7 @@ export default function Home() {
     // setStudents(groupedStudents);
     // console.log(students)
 
-    axios.get('https://niepid-1-1.onrender.com/teacher/getTeacher', {
+    axios.get('http://localhost:4000/teacher/getTeacher', {
       headers: {
         id: teacherId,
         // id:"t2",
@@ -70,6 +70,23 @@ export default function Home() {
     localStorage.removeItem("role");
     localStorage.removeItem("token");
     navigate("/");
+  };
+
+  const replacePrimaryLabels = (text) => {
+    console.log(text)
+    if (!text) return '';
+    
+    return text
+      .replace(/preprimary_1/gi, 'Preprimary-1')
+      .replace(/preprimary_2/gi, 'Preprimary-2')
+      .replace(/preprimary_3/gi, 'Preprimary-3')
+      .replace(/primary1_1/gi, 'Primary-I-1')
+      .replace(/primary1_2/gi, 'Primary-I-2')
+      .replace(/primary1_3/gi, 'Primary-I-3')
+      .replace(/primary2_1/gi, 'Primary-II-1')
+      .replace(/primary2_2/gi, 'Primary-II-2')
+      .replace(/primary2_3/gi, 'Primary-II-3')
+      
   };
 
   const Header = () => (
@@ -104,7 +121,7 @@ export default function Home() {
           {Object.keys(students).length > 0 ? (
             Object.keys(students).map((classId) => (
               <div key={classId} style={styles.classContainer}>
-                <h3>{students[classId][0].classId.toUpperCase()}</h3>
+                <h3>{replacePrimaryLabels(students[classId][0].classId)}</h3>
                 {students[classId].map((student) => (
                   <div key={student.id} style={styles.student}>
                     <p>{student.regNo} __ {student.name}</p>

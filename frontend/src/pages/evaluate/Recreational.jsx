@@ -209,7 +209,7 @@ const Recreational = () => {
         // console.log(year, currYear)
         // console.log(section, currSection)
         // console.log(id)
-        const data = await axios.get("https://niepid-1-1.onrender.com/teacher/evaluate/questions", {
+        const data = await axios.get("http://localhost:4000/teacher/evaluate/questions", {
             headers: {
                 id: id,
                 "Content-Type": "application/json",
@@ -292,7 +292,7 @@ const Recreational = () => {
         };
         // console.log('Submitting data:', submissionData);
         const id = localStorage.getItem("studentId")
-        await axios.post("https://niepid-1-1.onrender.com/teacher/eval/form", {
+        await axios.post("http://localhost:4000/teacher/eval/form", {
             type: "recreationalQA",
             id: id,
             section: section,
@@ -312,7 +312,7 @@ const Recreational = () => {
                 console.log(err.response)
             })
 
-        axios.get("https://niepid-1-1.onrender.com/teacher/evaluate", {
+        axios.get("http://localhost:4000/teacher/evaluate", {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -351,7 +351,7 @@ const Recreational = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("https://niepid-1-1.onrender.com/teacher/termTypeComment", {
+        axios.post("http://localhost:4000/teacher/termTypeComment", {
             section: section,
             year: year,
             term: term,

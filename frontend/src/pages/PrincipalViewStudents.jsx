@@ -60,7 +60,7 @@ const PrincipalViewStudents = () => {
     const fetchStudentDetails = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('https://niepid-1-1.onrender.com/principle/viewstudents', {
+            const response = await axios.get('http://localhost:4000/principle/viewstudents', {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -81,7 +81,7 @@ const PrincipalViewStudents = () => {
     const fetchTeacherDetails = async (classId) => {
         try {
             console.log("Hello")
-            const response = await axios.get(`https://niepid-1-1.onrender.com/principle/teacher/${classId}`, {
+            const response = await axios.get(`http://localhost:4000/principle/teacher/${classId}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -120,6 +120,23 @@ const PrincipalViewStudents = () => {
 
         setFilteredStudents(filtered);
     };
+
+    const replacePrimaryLabels = (text) => {
+        console.log(text)
+        if (!text) return '';
+        
+        return text
+          .replace(/preprimary_1/gi, 'Preprimary-1')
+          .replace(/preprimary_2/gi, 'Preprimary-2')
+          .replace(/preprimary_3/gi, 'Preprimary-3')
+          .replace(/primary1_1/gi, 'Primary-I-1')
+          .replace(/primary1_2/gi, 'Primary-I-2')
+          .replace(/primary1_3/gi, 'Primary-I-3')
+          .replace(/primary2_1/gi, 'Primary-II-1')
+          .replace(/primary2_2/gi, 'Primary-II-2')
+          .replace(/primary2_3/gi, 'Primary-II-3')
+          
+      };
 
     const toggleSearch = (column) => {
 
@@ -219,7 +236,7 @@ const PrincipalViewStudents = () => {
                                 <td style={styles.td}>{student.name}</td>
                                 <td style={styles.td}>{student.currYear}</td>
                                 <td style={styles.td}>{student.currTerm}</td>
-                                <td style={styles.td}>{student.classId}</td>
+                                <td style={styles.td}>{replacePrimaryLabels(student.classId)}</td>
                                 <td style={styles.td}>
                                     {teacherDetails[student.classId] ? teacherDetails[student.classId] : 'Loading...'}
                                 </td>

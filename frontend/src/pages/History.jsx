@@ -132,6 +132,26 @@ const StudentPerformance = () => {
         window.print()
     }
 
+    const replacePrimaryLabels = (text) => {
+        console.log(text)
+        if (!text) return '';
+        
+        return text
+          .replace(/preprimary_1/gi, 'Preprimary-1')
+          .replace(/preprimary_2/gi, 'Preprimary-2')
+          .replace(/preprimary_3/gi, 'Preprimary-3')
+          .replace(/primary1_1/gi, 'Primary-I-1')
+          .replace(/primary1_2/gi, 'Primary-I-2')
+          .replace(/primary1_3/gi, 'Primary-I-3')
+          .replace(/primary2_1/gi, 'Primary-II-1')
+          .replace(/primary2_2/gi, 'Primary-II-2')
+          .replace(/primary2_3/gi, 'Primary-II-3')
+          .replace(/preprimary/gi, 'Preprimary')
+          .replace(/primary1/gi, 'Primary-I')
+          .replace(/primary2/gi, 'Primary-II')
+          
+      };
+
     const Footer = () => (
         <footer style={styles.footer}>&copy; 2024 Student History Portal</footer>
     );
@@ -139,7 +159,7 @@ const StudentPerformance = () => {
         console.log("hello")
         if (role === "teacher") {
             console.log("hello")
-            await axios.get("https://niepid-1-1.onrender.com/teacher/abc", {
+            await axios.get("http://localhost:4000/teacher/abc", {
                 headers: {
                     id: id,
                     "Content-Type": "application/json",
@@ -166,7 +186,7 @@ const StudentPerformance = () => {
         else if (role === "principle") {
             console.log(role)
             console.log(id)
-            axios.get("https://niepid-1-1.onrender.com/principle/student/viewHistory", {
+            axios.get("http://localhost:4000/principle/student/viewHistory", {
                 headers: {
                     id: id,
                     "Content-Type": "application/json",
@@ -189,7 +209,7 @@ const StudentPerformance = () => {
                 })
         }
         else if (role === "admin") {
-            axios.get("https://niepid-1-1.onrender.com/admin/student/viewHistory", {
+            axios.get("http://localhost:4000/admin/student/viewHistory", {
                 headers: {
                     id: id,
                     "Content-Type": "application/json",
@@ -213,7 +233,7 @@ const StudentPerformance = () => {
             console.log("student")
             const id1 = localStorage.getItem('regNo')
             console.log(id1)
-            axios.get("https://niepid-1-1.onrender.com/student/viewHistory", {
+            axios.get("http://localhost:4000/student/viewHistory", {
                 headers: {
                     id: id1,
                     "Content-Type": "application/json",
@@ -509,8 +529,8 @@ const StudentPerformance = () => {
                     <p><strong>Name:</strong> {studentInfo.name}</p>
                     <p><strong>Registration Number:</strong> {studentInfo.regNo}</p>
                     <p><strong>Current Year:</strong> {studentInfo.currYear}</p>
-                    <p><strong>Current Section:</strong> {studentInfo.currSection}</p>
-                    <p><strong>Class ID:</strong> {studentInfo.classId}</p>
+                    <p><strong>Current Section:</strong> {replacePrimaryLabels(studentInfo.currSection)}</p>
+                    <p><strong>Class ID:</strong> {replacePrimaryLabels(studentInfo.classId)}</p>
                 </div>
                 <h2>Select Section and Year</h2>
                 <div className="year-selector" style={styles.selector}>
@@ -518,7 +538,7 @@ const StudentPerformance = () => {
                         Section:
                         <select value={selectedSection} onChange={(e) => setSelectedSection(e.target.value)} style={styles.select}>
                             {studentInfo.section.map(sec => (
-                                <option key={sec.sec} value={sec.sec}>{sec.sec}</option>
+                                <option key={sec.sec} value={sec.sec}>{replacePrimaryLabels(sec.sec)}</option>
                             ))}
                         </select>
                     </label>

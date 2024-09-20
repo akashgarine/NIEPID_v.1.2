@@ -15,11 +15,7 @@ const TeacherTable = () => {
     classId: [],
   });
 
-  const classIdName ={
-    preprimary_1 : "Premrimary-1",
-    preprimary_2 : "Premrimary-2",
-    preprimary_3 : "Premrimary-3",
-  }
+  
   const [isOpen, setIsOpen] = useState(false);
 
   // Function to open the modal
@@ -41,7 +37,7 @@ const TeacherTable = () => {
       const response =
         role === "admin"
           ? await axios.get(
-              "https://niepid-1-1.onrender.com/admin/viewTeacher",
+              "http://localhost:4000/admin/viewTeacher",
               {
                 headers: {
                   "Content-Type": "application/json",
@@ -53,7 +49,7 @@ const TeacherTable = () => {
               }
             )
           : await axios.get(
-              "https://niepid-1-1.onrender.com/principle/viewTeacher",
+              "http://localhost:4000/principle/viewTeacher",
               {
                 headers: {
                   "Content-Type": "application/json",
@@ -64,6 +60,7 @@ const TeacherTable = () => {
                 withCredentials: true,
               }
             );
+            console.log(response.data.data)
       setTeacherDetails(response.data.data);
     } catch (error) {
       console.error("Error fetching teacher details:", error.response);
@@ -86,12 +83,28 @@ const TeacherTable = () => {
     openModal();
   };
 
+  const replacePrimaryLabels = (text) => {
+    if (!text) return '';
+    
+    return text
+      .replace(/preprimary_1/gi, 'Preprimary-1')
+      .replace(/preprimary_2/gi, 'Preprimary-2')
+      .replace(/preprimary_3/gi, 'Preprimary-3')
+      .replace(/primary1_1/gi, 'Primary-I-1')
+      .replace(/primary1_2/gi, 'Primary-I-2')
+      .replace(/primary1_3/gi, 'Primary-I-3')
+      .replace(/primary2_1/gi, 'Primary-II-1')
+      .replace(/primary2_2/gi, 'Primary-II-2')
+      .replace(/primary2_3/gi, 'Primary-II-3')
+      
+  };
+
   const handleDelete = async () => {
     try {
       console.log(editedTeacher);
       const id = localStorage.getItem("teacherId");
       const response = await axios.put(
-        `https://niepid-1-1.onrender.com/admin/updateTeacher/${id}`,
+        `http://localhost:4000/admin/updateTeacher/${id}`,
         editedTeacher,
         {
           headers: {
@@ -138,7 +151,7 @@ const TeacherTable = () => {
       }
 
       const response = await axios.put(
-        `https://niepid-1-1.onrender.com/admin/updateTeacher/${id}`,
+        `http://localhost:4000/admin/updateTeacher/${id}`,
         updatedTeacher,
         {
           headers: {
@@ -291,6 +304,7 @@ const TeacherTable = () => {
                 key={teacher.teacherId}
                 style={index % 2 === 0 ? styles.evenRow : styles.oddRow}
               >
+              {console.log(teacher.classId)}
                 <td style={styles.td}>
                   <input
                     type="text"
@@ -353,8 +367,8 @@ const TeacherTable = () => {
                     name="classId"
                     value={
                       editMode === teacher.teacherId
-                        ? editedTeacher.classId
-                        : teacher.classId
+                        ? editedTeacher.classId.map((classid)=>replacePrimaryLabels(classid))
+                        : teacher.classId.map((classid)=>replacePrimaryLabels(classid))
                     }
                     onChange={handleInputChange}
                     style={styles.input}
@@ -431,7 +445,7 @@ const TeacherTable = () => {
                     type="text"
                     name="classId"
                     value={
-                      editedTeacher.classId
+                      editedTeacher.classId.map((classid)=>replacePrimaryLabels(classid))
                         
                     }
                     //onChange={handleInputChange}

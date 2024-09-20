@@ -25,6 +25,26 @@ const Front = () => {
     navigate(path);
   };
 
+  const replacePrimaryLabels = (text) => {
+    console.log(text)
+    if (!text) return '';
+    
+    return text
+      .replace(/preprimary_1/gi, 'Preprimary-1')
+      .replace(/preprimary_2/gi, 'Preprimary-2')
+      .replace(/preprimary_3/gi, 'Preprimary-3')
+      .replace(/primary1_1/gi, 'Primary-I-1')
+      .replace(/primary1_2/gi, 'Primary-I-2')
+      .replace(/primary1_3/gi, 'Primary-I-3')
+      .replace(/primary2_1/gi, 'Primary-II-1')
+      .replace(/primary2_2/gi, 'Primary-II-2')
+      .replace(/primary2_3/gi, 'Primary-II-3')
+      .replace(/preprimary/gi, 'Preprimary')
+      .replace(/primary1/gi, 'Primary-I')
+      .replace(/primary2/gi, 'Primary-II')
+      
+  };
+
   const Header = () => (
     <header style={styles.header}>
       <div style={styles.logo}>
@@ -40,7 +60,7 @@ const Front = () => {
   );
 
   useEffect(async () => {
-    const data = await axios.get("https://niepid-1-1.onrender.com/teacher/evaluate/questions", {
+    const data = await axios.get("http://localhost:4000/teacher/evaluate/questions", {
       headers: {
         id: id,
         "Content-Type": "application/json",
@@ -105,7 +125,7 @@ const Front = () => {
   })
 
   const handleSubmit = async () => {
-    await axios.post("https://niepid-1-1.onrender.com/teacher/termTypeComment", {
+    await axios.post("http://localhost:4000/teacher/termTypeComment", {
       id: id,
       section: section,
       year: year,
@@ -140,7 +160,7 @@ const Front = () => {
       <Header />
       <main style={styles.main}>
         <h1 style={styles.heading}>Functional Assessment Checklist for Programming</h1>
-        <h1 style={styles.subHeading}>{section.toUpperCase()} -- Year{year} -- Term{term}</h1>
+        <h1 style={styles.subHeading}>{replacePrimaryLabels(section)} -- Year{year} -- Term{term}</h1>
         <div style={styles.buttonContainer}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <button style={styles.button} onClick={() => navigateTo('/teacher/term/termEntry/eval/personal')}>Personal</button>
